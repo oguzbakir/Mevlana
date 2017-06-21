@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="Black_transparent">#80000000</color>
+    <color name="Black_transparent">#eaffffff</color>
     <color name="Transparent">#00ff0101</color>
+    <color name="menu_text_color">#c81b1b1b</color>
+
 </resources>

@@ -32,7 +32,7 @@
 
 			<ImageView
             android:id="@+id/handleImage"
-            android:background="@drawable/handle9"
+            android:background="@color/Black_transparent"
         	android:layout_width="match_parent"
         	android:layout_height="50dp"/>
          </LinearLayout>
