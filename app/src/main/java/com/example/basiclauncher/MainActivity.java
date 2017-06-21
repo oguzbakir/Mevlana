@@ -99,13 +99,12 @@ public class MainActivity extends Activity {
 
             @Override
             public void onScrollStarted() {
-
+                
             }
 
             @Override
             public void onScrollEnded() {
-                ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
-                handle.setVisibility(View.VISIBLE);
+
             }
         });
 		slidingDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener(){
