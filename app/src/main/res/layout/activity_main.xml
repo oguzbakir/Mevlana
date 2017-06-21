@@ -5,31 +5,44 @@
     tools:context=".MainActivity"
     android:id="@+id/home_view" >
 
-    <SlidingDrawer 
+    <SlidingDrawer
         android:id="@+id/drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        
+
+
+
         android:handle="@+id/handle"
         android:content="@+id/content">
-        
-        <ImageView 
-            android:id="@+id/handle"
-            android:background="@drawable/handle"
-        	android:layout_width="150dp"
-        	android:layout_height="40dp"/>
+
+
+        <LinearLayout
+            android:id="@id/handle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        <ImageView
+            android:id="@+id/handleImage"
+            android:background="@drawable/handle9"
+        	android:layout_width="match_parent"
+        	android:layout_height="50dp"/>
+         </LinearLayout>
+
         <GridView
             android:id="@+id/content"
             android:layout_width="match_parent"
         	android:layout_height="match_parent"
         	android:background="@color/Black_transparent"
         	android:columnWidth="90dp"
-        	android:numColumns="auto_fit"
+        	android:numColumns="4"
         	android:verticalSpacing="50dp"
         	android:horizontalSpacing="50dp"
         	android:stretchMode="columnWidth"
         	android:gravity="center"
-			android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true" >
+
+
+
+        </GridView>
 
     </SlidingDrawer>
 

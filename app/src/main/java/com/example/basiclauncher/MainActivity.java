@@ -30,9 +30,11 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnLongClickListener;
@@ -44,6 +46,8 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.SlidingDrawer;
 import android.widget.SlidingDrawer.OnDrawerOpenListener;
 import android.widget.TextView;
+
+import static android.view.View.GONE;
 
 public class MainActivity extends Activity {
 	DrawerAdapter drawerAdapterObject;
@@ -81,12 +85,20 @@ public class MainActivity extends Activity {
 		new LoadApps().execute();
 		addAppsToHome();
 		//set_pacs(true);
-		slidingDrawer.setOnDrawerOpenListener(new OnDrawerOpenListener() {
-			
-			@Override
-			public void onDrawerOpened() {
-				appLaunchable=true;
-			}
+		slidingDrawer.setOnDrawerScrollListener(new SlidingDrawer.OnDrawerScrollListener() {
+
+            @Override
+            public void onScrollStarted() {
+                ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
+                handle.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onScrollEnded() {
+                appLaunchable=true;
+            }
+
+
 		});
 		
 		homeView.setOnLongClickListener(new OnLongClickListener() {
