@@ -48,6 +48,7 @@ import android.widget.SlidingDrawer.OnDrawerOpenListener;
 import android.widget.TextView;
 
 import static android.view.View.GONE;
+import static com.example.basiclauncher.R.id.handle;
 
 public class MainActivity extends Activity {
 	DrawerAdapter drawerAdapterObject;
@@ -85,20 +86,35 @@ public class MainActivity extends Activity {
 		new LoadApps().execute();
 		addAppsToHome();
 		//set_pacs(true);
-		slidingDrawer.setOnDrawerScrollListener(new SlidingDrawer.OnDrawerScrollListener() {
+		slidingDrawer.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener(){
+
+            @Override
+            public void onDrawerOpened() {
+                ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
+                handle.setVisibility(View.GONE);
+                appLaunchable=true;
+            }
+        });
+        slidingDrawer.setOnDrawerScrollListener(new SlidingDrawer.OnDrawerScrollListener(){
 
             @Override
             public void onScrollStarted() {
-                ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
-                handle.setVisibility(View.GONE);
+
             }
 
             @Override
             public void onScrollEnded() {
-                appLaunchable=true;
+                ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
+                handle.setVisibility(View.VISIBLE);
             }
+        });
+		slidingDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener(){
+			@Override
+			public void onDrawerClosed(){
+				ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
+				handle.setVisibility(View.VISIBLE);
 
-
+			}
 		});
 		
 		homeView.setOnLongClickListener(new OnLongClickListener() {
