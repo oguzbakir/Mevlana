@@ -93,13 +93,16 @@ public class MainActivity extends Activity {
                 ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
                 handle.setVisibility(View.GONE);
                 appLaunchable=true;
+                ImageView arrow = (ImageView) slidingDrawer.findViewById(R.id.handleArrow);
+                arrow.setRotationX(180);
+
             }
         });
         slidingDrawer.setOnDrawerScrollListener(new SlidingDrawer.OnDrawerScrollListener(){
 
             @Override
             public void onScrollStarted() {
-                
+
             }
 
             @Override
@@ -112,7 +115,8 @@ public class MainActivity extends Activity {
 			public void onDrawerClosed(){
 				ImageView handle = (ImageView) slidingDrawer.findViewById(R.id.handleImage);
 				handle.setVisibility(View.VISIBLE);
-
+                ImageView arrow = (ImageView) slidingDrawer.findViewById(R.id.handleArrow);
+                arrow.setRotationX(0);
 			}
 		});
 		
@@ -124,8 +128,9 @@ public class MainActivity extends Activity {
 				AlertDialog.Builder b = new AlertDialog.Builder(MainActivity.this);
 				
 				String [] items = {getResources().getString(R.string.widget) 
-						, getResources().getString(R.string.shortcut)
-						,getResources().getString(R.string.theme)};
+						,getResources().getString(R.string.shortcut)
+						,getResources().getString(R.string.theme)
+				        ,getResources().getString(R.string.settings)};
 				
 				b.setItems(items, new OnClickListener() {
 					
