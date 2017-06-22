@@ -149,6 +149,10 @@ public class MainActivity extends Activity {
 						case 2:
 							selectTheme();
 							break;
+						case 3:
+							pushSettings();
+							break;
+
 						}
 					}
 				});
@@ -168,6 +172,11 @@ public class MainActivity extends Activity {
 		filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
 		filter.addDataScheme("package");
 		registerReceiver(new PacReceiver(), filter); 
+	}
+
+	void pushSettings(){
+		Intent intent = new Intent(this, Settings.class);
+		startActivity(intent);
 	}
 	
 	void selectTheme(){
@@ -337,6 +346,12 @@ public class MainActivity extends Activity {
 	protected void onStop() {
 	    super.onStop();
 	    mAppWidgetHost.stopListening();
+	}
+	@Override
+	public void onBackPressed(){
+		if(slidingDrawer.isOpened()){
+			slidingDrawer.animateClose();
+		}
 	}
 	
 	public class LoadApps extends AsyncTask<String, Void, String>{

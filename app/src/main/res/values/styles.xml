@@ -15,10 +15,12 @@
         <item name="android:statusBarColor">@color/Transparent</item>
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="SettingsTheme" parent="android:Theme.Material.Light">
+
+
     </style>
+
+
 
 
 </resources>
