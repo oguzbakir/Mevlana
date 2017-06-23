@@ -11,6 +11,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:padding="3dp"
+        android:layout_marginTop="10dp"
         />
     <TextView 
         android:id="@+id/icon_text"
